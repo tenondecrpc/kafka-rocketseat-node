@@ -26,14 +26,14 @@ async function run() {
       const payload = JSON.parse(message.value);
 
 
-      setTimeout(() => {
+      // setTimeout(() => {
         producer.send({
           topic: 'certification-response',
           messages: [
             { value: `Certification of user ${payload.user.name} and course ${payload.course} generated!` }
           ]
         })
-      }, 3000);
+      // }, 3000);
     },
   });
 };

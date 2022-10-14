@@ -33,7 +33,7 @@ async function run() {
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      console.log('Response', message);
+      console.log('Response', String(message.value));
     },
   });
 
