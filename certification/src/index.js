@@ -6,13 +6,14 @@ const kafka = new Kafka({
 });
 
 const topic = 'issue-certificate';
-const consumer = kafka.consumer({ groupId: 'certificate-group' });
+const consumer = kafka.consumer({ groupId: 'certificate-group-receiver' });
 
 const producer = kafka.producer();
 
-const counter = 0;
+let counter = 0;
 
 async function run() {
+  await producer.connect();
   await consumer.connect();
   await consumer.subscribe({ topic });
 
